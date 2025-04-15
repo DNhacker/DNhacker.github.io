@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
+const isGithubPages = process.env.GITHUB_PAGES === 'true';
+
 const nextConfig = {
-  distDir: "build", // Optional: Custom output directory
-  //output: "export", // Enables static export
+  output: 'export',
+  basePath: isGithubPages ? '/protfolio' : '',
+  assetPrefix: isGithubPages ? '/protfolio/' : '',
 };
 
-export default nextConfig;
+module.exports = nextConfig;
